@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
+import "@fontsource/roboto-mono";
+import "@fontsource/roboto-mono/400.css";
+import "@fontsource/roboto-mono/400-italic.css"; 
 
 @Component({
   selector: 'app-root',
@@ -10,7 +13,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'bts-collection-frontend';
+  title = 'bands-collection-frontend';
 
   constructor() {}
 }
