@@ -1,0 +1,57 @@
+<nz-layout>
+    <!-- <div class="logo"></div>
+        <ul nz-menu nzTheme="dark" nzMode="horizontal" class="header-menu">
+            <li nz-menu-item>nav 1</li>
+            <li nz-menu-item nzSelected>nav 2</li>
+            <li nz-menu-item>nav 3</li>
+        </ul>
+        <button>Iniciar sesión</button> -->
+
+    <div nz-row>
+        <div nz-col nzSpan="24">
+            <div class="img-container">
+                <img src="https://koreabyme.com/wp-content/uploads/2020/12/confetti-2571539_1920.jpg" />
+                <div class="img-container__overlay"></div>
+                <nav class="img-container__navbar">
+                    <a href="#">Kpopi</a>
+                    <button class="img-container__login">Iniciar sesión</button>
+                    <button class="img-container__menu"> <span nz-icon nzType="search"
+                            nzTheme="outline"></span></button>
+                </nav>
+                <div class="img-container__search">
+                    <form>
+                        <input [formControl]="name" type="text" placeholder="Busca un grupo..."
+                            class="img-container__input" (blur)="onBlur($event)" (keyup)="filterList()">
+                        <span class="img-container__button" nz-icon nzType="search" nzTheme="outline"></span>
+                    </form>
+                </div>
+
+                <div class="img-container__content">
+                    <p class="img-container__title">Explora la música más popular de K-POP</p>
+                    <p class="img-container__description"> Centralizamos todos tus servicios de música favoritos
+                        y
+                        ponemos en un
+                        solo lugar la posibilidad de escuchar, ver y compartir tu mundo musical. Debajo puedes
+                        ver,
+                        en tiempo real,
+                        los hábitos y tendencias musicales de la comunidad global de Last.fm. Nunca dejes de
+                        explorar. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nz-content>
+        <div nz-row>
+            @for (band of filteredBands; track band.id) {
+            <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="8" nzXl="8" (click)="onBandClick(band)">
+                <div class="custom-card">
+                    <img alt="Banda imagen" [src]="band.img" />
+                    <div class="custom-card__overlay">
+                        <p class="custom-card__title">{{band.name}}</p>
+                    </div>
+                </div>
+            </div>
+            }
+        </div>
+    </nz-content>
+</nz-layout>
