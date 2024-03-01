@@ -16,9 +16,8 @@
       </div>
       <div nz-row class="row-container row-btn">
         <div nz-col nzXs="24" nzSm="24" nzMd="12" nzLg="6" nzXl="6">
-          <button nz-button nzSize="large"  class="btn">
+          <button nz-button nzSize="large" class="btn">
             <span nz-icon nzType="caret-right"></span>
-            <span nz-icon nzType="caret-right" nzTheme="outline"></span>
             Escuchar a este artista
           </button>
         </div>
@@ -26,8 +25,23 @@
       <div nz-row>
         <div nz-col nzMd="24" nzLg="12">
           <div nz-row class="row-container">
-            <div nz-col nzMd="24" nzLg="12">Div 1</div>
-            <div nz-col nzMd="24" nzLg="12">Div 2</div>
+            <div nz-col nzMd="24" nzLg="12" class="cols">
+              <album-card
+                photoAlbum="https://cdnx.jumpseller.com/cakepopundertaking/image/26089067/album-cover.jpeg?1660197671"
+                typeActivity="Primer lanzamiento"
+                titleSong="No more dream"
+                releaseDate="11 de Junio de 2013"
+                class="card"
+              ></album-card>
+            </div>
+            <div nz-col nzMd="24" nzLg="12">
+              <album-card
+              photoAlbum="https://cdns-images.dzcdn.net/images/cover/327f27bb81e5d7a7bf74aa12133f9e13/500x500.jpg"
+              typeActivity="Ultimo lanzamiento"
+              titleSong="Take Two"
+              releaseDate="5 de septiembre de 2023"
+            ></album-card>
+            </div>
           </div>
         </div>
       </div>
