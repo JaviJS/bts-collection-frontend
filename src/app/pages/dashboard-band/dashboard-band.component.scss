@@ -60,3 +60,19 @@
     object-fit: cover;
   }
 }
+
+.ant-page-header-back {.ant-page-header-back-button{
+  color: white !important;
+}}
+.ant-page-header
+  .ant-page-header-heading
+  .ant-page-header-heading-left
+  .ant-page-header-back
+  .ant-page-header-back-button {
+  color: #ff0000;
+  background-color: red ;
+}
+// .ant-page-header {
+//   color: #ff0000 !important;
+//   background-color: red !important;
+// }

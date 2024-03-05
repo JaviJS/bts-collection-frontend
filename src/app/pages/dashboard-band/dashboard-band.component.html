@@ -10,6 +10,16 @@
     <div class="parent__content">
       <div nz-row class="row-container">
         <div nz-col nzSpan="24">
+          <nz-page-header
+            class="custom-header"
+            (nzBack)="onBack()"
+            nzBackIcon
+            nzTitle="Title"
+          ></nz-page-header>
+        </div>
+      </div>
+      <div nz-row class="row-container">
+        <div nz-col nzSpan="24">
           <h1 nz-typography>BTS</h1>
           <h5 nz-typography>Bangtan Sonyeondan</h5>
         </div>
@@ -47,17 +57,31 @@
       </div>
       <div nz-row class="row-container">
         <div nz-col nzSpan="24">
-          <nz-tabset nzLinkRouter>
+          <nz-tabset nzLinkRouter [nzCanDeactivate]="canDeactivate">
             <nz-tab>
-                <a *nzTabLink nz-tab-link routerLink="/login">Login</a>
+              <a *nzTabLink nz-tab-link [routerLink]="'/' + routeBand">{{
+                routeBand
+              }}</a>
             </nz-tab>
             <nz-tab>
-                <a *nzTabLink nz-tab-link  routerLink="/bts/miembros">Login</a>
+              <a
+                *nzTabLink
+                nz-tab-link
+                [routerLink]="'/' + routeBand + '/discografia'"
+                >Discografía</a
+              >
+            </nz-tab>
+            <nz-tab>
+              <a
+                *nzTabLink
+                nz-tab-link
+                [routerLink]="'/' + routeBand + '/miembros'"
+                >Miembros</a
+              >
             </nz-tab>
           </nz-tabset>
         </div>
       </div>
-      <div style="padding: 20px">titulo!</div>
     </div>
   </section>
   <section style="background-color: red">
