@@ -4,10 +4,11 @@ export interface Band {
     id?: number;
     img: string;
     name: string;
-    codeName:string;
-    alias?: string;
+    complete_name?: string;
+    code_name: string;
     description?: string;
     debut_date? : Date;
+    mv_debut: string;
     albums: Album[],
     members: Member[]
   }

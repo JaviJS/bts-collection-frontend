@@ -3,8 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { DemoNgZorroAntdModule } from '../../ng-zorro-antd.module';
 import { AlbumCardComponent } from '../../components/cards/album-card/album-card.component';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NzTabsCanDeactivateFn } from 'ng-zorro-antd/tabs';
+import BANDS_COLLECTION from '../../data/bands-collection.data';
+import { Band } from '../../models/band.model';
 @Component({
   selector: 'app-info-bts',
   standalone: true,
@@ -20,32 +22,36 @@ import { NzTabsCanDeactivateFn } from 'ng-zorro-antd/tabs';
 })
 export class DashboardBandComponent {
   routeBand: string = '';
-
-  constructor(private route: ActivatedRoute) {}
-  ngOnInit(): void {}
-
+  bands: Band[] = BANDS_COLLECTION;
+  constructor(private route: ActivatedRoute, private router: Router) {}
+  ngOnInit(): void {
+    this.getBandRoute();
+  }
+  getBandRoute() {
+    let band = this.route.snapshot.paramMap.get('band');
+    if (band) {
+      const findBand = this.bands.find((x) => x.code_name === band);
+      console.log({findBand});
+      if (findBand) {
+        this.routeBand = findBand?.name;
+      } else {
+        this.router.navigate(['/not-found/']);
+      }
+    }
+  }
   canDeactivate: NzTabsCanDeactivateFn = (
     fromIndex: number,
     toIndex: number
   ) => {
-    console.log(toIndex);
-    let band = this.route.snapshot.paramMap.get('band');
-    // console.log('route', this.route.snapshot.paramMap.get('band'));
-    if (band) {
-      this.routeBand = band;
-    }
+    // this.getBandRoute();
     return true;
   };
-  initRoute() {
-    let band = this.route.snapshot.paramMap.get('band');
-    // console.log('route', this.route.snapshot.paramMap.get('band'));
-    if (band) {
-      return (this.routeBand = band);
-    } else {
-      return '';
-    }
+  effectBtn(): void {
+    const btn = document.querySelector('.btn') as HTMLElement;
+    btn.style.border = 'none';
+    btn.style.boxShadow = 'none';
   }
   onBack(): void {
-    console.log('onBack');
+    this.router.navigate(['/']);
   }
 }
